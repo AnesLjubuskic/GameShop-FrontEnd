@@ -1,0 +1,8 @@
+<div class="row" style="padding:3% 10% 0 10%">
+    <div class="col-xs-12">
+        <app-purchase-item *ngFor="let s of products" [productDet]="s">
+        </app-purchase-item>
+        <hr>
+        <h1 style="color: gray;">Total Price: {{price}}$</h1>
+    </div>
+</div>

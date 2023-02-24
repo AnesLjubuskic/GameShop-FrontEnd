@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <div class="container-fluid">
+        <div class="navbar-nav">
+            <a routerLink="/home" class="navbar-brand"
+                style="font-weight:bold; font-size:40px;color: rgb(118, 118, 118);">Game
+                Shop</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive="active">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a class="nav-link" routerLink="/purchasehistory" *ngIf="authService.isLogged">Purchase History</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav  ms-auto mb-2 mb-lg-0">
+                <li routerLinkActive="active">
+                    <h1 class="bi bi-cart-fill" routerLink="/cart" style="cursor: pointer;
+                    margin-right:50px;color:gray" *ngIf="authService.isLogged">{{numberOfItems}}</h1>
+
+                </li>
+                <li routerLinkActive="active">
+                    <a class="nav-link" routerLink="/login" *ngIf="!authService.isLogged">Login</a>
+                </li>
+                <li routerLinkActive="active">
+                    <h1 class="bi bi-person-circle" *ngIf="authService.isLogged" style="cursor: pointer;color: gray;"
+                        (click)="Logout()">
+                    </h1>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

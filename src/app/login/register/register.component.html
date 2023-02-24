@@ -1,0 +1,56 @@
+<div class="register" style=" margin-left: 10%;
+margin-right: 10%;
+margin-top: 10px;">
+    <form [formGroup]="frmRegister">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                formControlName="firstName">
+            <small *ngIf="frmRegister.get('firstName')!.invalid 
+            && frmRegister.get('firstName')!.touched" class="text-danger">Input needed!</small>
+            <br>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                formControlName="lastName">
+            <small *ngIf="frmRegister.get('lastName')!.invalid 
+            && frmRegister.get('lastName')!.touched" class="text-danger">Input needed!</small>
+            <br>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                formControlName="email">
+            <small *ngIf="frmRegister.get('email')!.invalid 
+            && frmRegister.get('email')!.touched" class="text-danger">Input needed!</small>
+            <br>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+            <small *ngIf="frmRegister.get('password')!.invalid 
+            && frmRegister.get('password')!.touched" class="text-danger">Input needed!</small>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Birth Date</label>
+            <input type="date" class="form-control" formControlName="dateOfBirth">
+            <small *ngIf="frmRegister.get('dateOfBirth')!.invalid && frmRegister.get('dateOfBirth')!.touched"
+                class="text-danger">Input needed!</small>
+            <br>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Gender: </label><br>
+            <select class="dropdown" formControlName="gender">
+                <option [value]="0">Male</option>
+                <option [value]="1">Female</option>
+                <option [value]="2">Others</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="frmRegister.invalid"
+            (click)="register()">Submit</button>
+    </form>
+</div>

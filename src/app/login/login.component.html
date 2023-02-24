@@ -1,0 +1,23 @@
+<div class="login">
+    <form [formGroup]="frmLogin">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                formControlName="email" [ngModel]="user.email">
+            <small *ngIf="frmLogin.get('email')!.invalid 
+            && frmLogin.get('email')!.touched" class="text-danger">Input needed!</small>
+            <br>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"
+                [ngModel]="this.user.password">
+            <small *ngIf="frmLogin.get('password')!.invalid 
+            && frmLogin.get('password')!.touched" class="text-danger">Input needed!</small>
+        </div>
+        <div class="mb-3">
+            <a routerLink="/register" class="form-label" style="text-decoration: none;">Register</a>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="frmLogin.invalid" (click)="login()">Submit</button>
+    </form>
+</div>

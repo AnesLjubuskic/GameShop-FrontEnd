@@ -1,0 +1,46 @@
+<div class="background">
+    <a style="cursor: pointer;" class="list-group-item clearfix gameItem">
+        <div class="float-start">
+            <img [src]="game.imageURL" alt="{{game.name}}" class="img-responsive"
+                style="max-height:10em;padding: 15px;min-height: 10em;">
+        </div>
+        <div class="whole">
+
+            <div class="left">
+                <div>
+                    <h1 class="list-group-item-heading" style="font-size:xx-large;">{{game.name}}
+                    </h1>
+                </div>
+                <div>
+                    <h4 class="list-group-item-heading" style="font-size:large;position: absolute; bottom:5px;">
+                        {{game.categoryName}}
+                    </h4>
+                </div>
+            </div>
+            <div class="middle">
+                <div>
+                    <h4 class="list-group-item-heading" style="font-size:large;">Price:
+                        {{game.price}}$
+                    </h4>
+                </div>
+                <div>
+                    <h4 class="list-group-item-heading" style="font-size:large;position: absolute; bottom:5px;">
+                        {{game.platformName}}
+                    </h4>
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                    <input type="number" style="height: 2em;width:3em; " [(ngModel)]="item.quantity" min="1"
+                        max="game.quantity" disabled>
+                </div>
+                <div>
+                    <input type="checkbox" style="height: 2em;width:2em;position: absolute; bottom:5px;"
+                        [(ngModel)]="item.buyCheck" disabled>
+                </div>
+            </div>
+            <div class="right">
+            </div>
+        </div>
+    </a>
+</div>

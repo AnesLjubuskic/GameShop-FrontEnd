@@ -1,0 +1,43 @@
+<app-search (search)="onSearch($event)"></app-search>
+<div class="row add-game">
+    <div class="col-sm-5 add-game">
+        <button class="btn btn-primary button-admin" *ngIf="authService.isAdminIn$|async" style="margin-bottom: 10px;"
+            (click)="openAddGame()">Add
+            Game</button>
+    </div>
+</div>
+<div class="row-mr-0" style="padding-top:3%">
+    <div class="col-xs-12">
+        <div class="lds-ripple" *ngIf="isFetching">
+            <div></div>
+            <div></div>
+        </div>
+        <app-game-item *ngFor="let gameEl of games |
+        paginate: {      
+            itemsPerPage: tableSize,     
+            currentPage: page,     
+            totalItems: 12     
+          };,let i=index" [game]="gameEl" [index]="i">
+        </app-game-item>
+        <hr>
+    </div>
+</div>
+<div class="row add-game">
+    <div class="col-sm-5 add-game">
+        <button class="btn btn-primary button-admin" *ngIf="authService.isAdminIn$|async" style="margin-bottom: 10px;"
+            (click)="openAddGame()">Add
+            Game</button>
+    </div>
+</div>
+
+<div class="text-center">
+
+    <pagination-controls previousLabel="Previous" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+
+    </pagination-controls>
+
+</div>
+
+<app-add-edit-game [category]="category" [subcategory]="subcategory" [open]="openModal" [editGame]="gameSingle"
+    (close)="closeAddGame()">
+</app-add-edit-game>

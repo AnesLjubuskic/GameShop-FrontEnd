@@ -1,0 +1,63 @@
+<form [formGroup]="frmSearch">
+    <div class="prime">
+        <div class="searchBar">
+            <input type="text" class="form-control" placeholder="Search For Game..." aria-describedby="button-addon2"
+                formControlName="name" [(ngModel)]="filter.name">
+            <!--
+    <span class="btn-group" appDropdown>
+        <button type="button" class="btn btn-primary dropdown-toggle">Categories<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li>
+                <a *ngFor="let s of categories" style="cursor:pointer;">{{s.categoryName}}</a>
+            </li>
+        </ul>
+    </span>
+-->
+            <select class="btn btn-secondary" formControlName="categoryId" [ngModel]="filter.categoryId">
+                <option [value]="undefined">Category</option>
+                <option *ngFor="let s of categories" [value]="s.id">
+                    {{s.categoryName}}</option>
+            </select>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                (click)="onSearch()">Search</button>
+        </div>
+        <div class="containMe">
+            <button type="button" class="btn btn-secondary" (click)="onClick()">Filter</button>
+            <ng-container *ngIf="visible">
+                <div class="bg-white shadow-sm p-3">
+                    <div class="filterCollapse">
+                        <div>
+                            <label>Subcategory: </label>
+                            <select class="btn btn-secondary" style="margin-left:5px" formControlName="subCategoryId"
+                                [ngModel]="filter.subCategoryId">
+                                <option [value]="undefined">All</option>
+                                <option *ngFor="let s of subcategories" [value]="s.id">
+                                    {{s.subCategoryName}}</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Platform: </label>
+                            <select class="btn btn-secondary" style="margin-left:5px" formControlName="platform"
+                                [ngModel]="filter.platform">
+                                <option [value]="undefined">All</option>
+                                <option [value]="0">Playstation</option>
+                                <option [value]="1">Xbox</option>
+                                <option [value]="2">PC</option>
+                                <option [value]="3">Nintendo</option>
+                                <option [value]="4">Others</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Sort by: </label>
+                            <select class="btn btn-secondary" style="margin-left:5px" formControlName="sort"
+                                [ngModel]="filter.sort">
+                                <option value="ASC">Ascending by Name</option>
+                                <option value="DSC">Descending by Name</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</form>

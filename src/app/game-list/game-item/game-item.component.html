@@ -1,0 +1,34 @@
+<div class="background">
+    <a style="cursor: pointer;" class="list-group-item clearfix gameItem" (click)="openDetails(game.id)">
+        <div class="float-start">
+            <img [src]="game.imageURL" alt="{{game.name}}" class="img-responsive"
+                style="max-height:10em;padding:15px;min-height: 10em;">
+        </div>
+        <div class="whole">
+            <div class="top">
+                <div>
+                    <div class="float-start" style="margin-left:5%">
+                        <h1 class="list-group-item-heading" style="font-size: xx-large;">{{game.name}}</h1>
+                    </div>
+                    <div class="float-end" style="margin-right:5%">
+                        <h4 class="list-group-item-heading" style="font-size:large" style="margin-top:5%">Price:
+                            {{game.price}}$
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="float-start" style="margin-left:5%">
+                    <h4 class="list-group-item-heading" style="font-size:large" style="margin-top:5%">
+                        {{game.categoryName}}
+                    </h4>
+                </div>
+                <div class="float-end" style="margin-right:5%">
+                    <h4 class="list-group-item-heading" style="font-size:large" style="margin-top:5%">
+                        {{game.platformName}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

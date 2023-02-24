@@ -1,0 +1,83 @@
+<div *ngIf="open" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel"
+    aria-modal="true" role="dialog" style="display: block;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLiveLabel" style="font-weight:bolder;" *ngIf="!editMode">Add
+                    Game</h5>
+                <h5 class="modal-title" id="exampleModalLiveLabel" style="font-weight:bolder;" *ngIf="editMode">Edit
+                    Game</h5>
+
+            </div>
+            <div class=" modal-body">
+                <form [formGroup]="frmGame">
+                    <label class="form-label">Name</label>
+                    <input class="form-control" formControlName="name" [ngModel]="editGame.name">
+                    <small *ngIf="frmGame.get('name')!.invalid 
+                    && frmGame.get('name')!.touched" class="text-danger">Input needed!</small>
+                    <br>
+
+                    <label class="form-label">Price</label>
+                    <input type="number" class="form-control" formControlName="price" [ngModel]="editGame.price">
+                    <small *ngIf="frmGame.get('price')!.invalid 
+                    && frmGame.get('price')!.touched" class="text-danger">Input needed!</small>
+                    <br>
+
+                    <label class="form-label">Description</label>
+                    <input class="form-control" formControlName="description" [ngModel]="editGame.description">
+                    <small *ngIf="frmGame.get('description')!.invalid && frmGame.get('description')!.touched"
+                        class="text-danger">Input needed!</small>
+                    <br>
+
+                    <label class="form-label">Release Date</label>
+                    <input type="date" class="form-control" formControlName="releaseDate"
+                        [ngModel]="editGame.releaseDate">
+                    <small *ngIf="frmGame.get('releaseDate')!.invalid && frmGame.get('releaseDate')!.touched"
+                        class="text-danger">Input needed!</small>
+                    <br>
+
+                    <label class="form-label">Image URL</label>
+                    <input class="form-control" formControlName="imageURL" [ngModel]="editGame.imageURL">
+                    <small *ngIf="frmGame.get('imageURL')!.invalid && frmGame.get('imageURL')!.touched"
+                        class="text-danger">Input needed!</small>
+                    <br>
+
+                    <label class="form-label">Quantity</label>
+                    <input type="number" class="form-control" formControlName="quantity" [ngModel]="editGame.quantity">
+                    <small *ngIf="frmGame.get('quantity')!.invalid && frmGame.get('quantity')!.touched"
+                        class="text-danger">Input needed!</small>
+                    <br>
+
+                    <label class="form-label">Category: </label><br>
+                    <select class="dropdown" formControlName="categoryId" [ngModel]="editGame.categoryId">
+                        <option *ngFor="let s of category" [value]="s.id">
+                            {{s.categoryName}}</option>
+                    </select>
+                    <br>
+
+                    <label class="form-label">Subcategory: </label><br>
+                    <select class="dropdown" formControlName="subCategoryId" [ngModel]="editGame.subCategoryId">
+                        <option *ngFor="let s of subcategory" [value]="s.id">
+                            {{s.subCategoryName}}</option>
+                    </select>
+                    <br>
+
+                    <label class="form-label">Platform: </label><br>
+                    <select class="dropdown" formControlName="platform" [ngModel]="editGame.platform">
+                        <option [value]="0">Playstation</option>
+                        <option [value]="1">Xbox</option>
+                        <option [value]="2">PC</option>
+                        <option [value]="3">Nintendo</option>
+                        <option [value]="4">Others</option>
+                    </select>
+                    <br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+                <button type="button" class="btn btn-primary" [disabled]="frmGame.invalid"
+                    (click)="addEditGame()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

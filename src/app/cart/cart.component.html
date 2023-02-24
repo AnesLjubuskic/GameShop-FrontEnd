@@ -1,0 +1,15 @@
+<div class="row" style="padding:3% 10% 0 10%">
+    <div class="col-xs-12">
+        <app-cart-item *ngFor="let product of products" [productDet]="product"></app-cart-item>
+        <hr>
+    </div>
+    <div class="row" style="width: 50%;">
+        <div class="col-sm-9" style="color: rgb(170, 170, 170); text-align: left;">
+            <div style="font-weight:bolder;">Total: {{totalPrice}} $</div>
+        </div>
+        <div class="col-sm-1 ">
+            <button class="btn btn-primary button-wrapper" style="width: 120px;" (click)="checkOut()">Check Out</button>
+        </div>
+
+    </div>
+</div>

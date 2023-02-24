@@ -1,0 +1,41 @@
+<div class="game">
+    <div class="name">
+        <h1>{{gameDetail.name}}</h1>
+        <h4>Price: {{gameDetail.price}}$</h4>
+    </div>
+    <div class="split">
+        <img [src]="gameDetail.imageURL" alt="" style="max-height: 300px;">
+        <p>{{gameDetail.description}}</p>
+    </div>
+    <hr style="width:50%;height:2px;background-color:darkgray;">
+    <div class="row" style="width: 50%;">
+        <div class="col-sm-9" style="color: rgb(170, 170, 170); text-align: left;">
+            <div>Category: {{gameDetail.categoryName}}</div>
+            <div>Subcategory: {{gameDetail.subcategoryName}}</div>
+            <div>Platform: {{gameDetail.platformName}}</div>
+            <div>Quantity: {{gameDetail.quantity}}</div>
+            <div>Release date: {{gameDetail.releaseDate}}</div>
+        </div>
+        <div class="col-sm-1 ">
+            <button class="btn btn-primary button-wrapper" style="width: 120px;" *ngIf="authService.isUserIn$|async"
+                (click)="addToCart()">Add
+                To Cart</button>
+            <button class="btn btn-primary button-wrapper" style="width: 120px;" *ngIf="authService.isUserIn$|async"
+                (click)="goToCheckOut()">Buy
+                Now</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <button *ngIf="authService.isAdminIn$|async" class="btn btn-primary button-admin"
+                    (click)="openEditGame()">Edit Game</button>
+            </div>
+            <div class="col-sm-5">
+                <button *ngIf="authService.isAdminIn$|async" type="button" class="btn btn-danger button-admin"
+                    (click)="deleteGame()">Delete Game</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-add-edit-game [open]="openModal" [category]="category" [subcategory]="subcategory" (close)="closeEditGame()"
+    [editGame]="gameDetail"></app-add-edit-game>

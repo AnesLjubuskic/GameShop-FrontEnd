@@ -1,0 +1,46 @@
+.gameItem {
+    margin-left: 10%;
+    margin-right: 10%;
+    border-bottom: 1px solid gray;
+}
+
+.background {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-decoration: none;
+}
+
+.background :hover {
+    background-color: rgb(241, 241, 241);
+    text-decoration: none;
+}
+
+
+.whole {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: auto;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: auto;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: auto;
+}

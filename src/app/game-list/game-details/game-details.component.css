@@ -1,0 +1,49 @@
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.name {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.name h4 {
+    font-weight: lighter;
+    font-size: x-large;
+}
+
+.split {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.split p {
+    width: 15%;
+    padding-left: 5%;
+    max-height: 300px;
+    min-width: 250px;
+    max-width: 250px;
+    overflow-y: auto;
+}
+
+.split p::-webkit-scrollbar {
+    width: 5px;
+}
+
+.split p::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+}
+
+.button-wrapper {
+    margin-top: 25%;
+    margin-bottom: 25%;
+}
+
+.button-admin {
+    margin-top: 10%;
+}

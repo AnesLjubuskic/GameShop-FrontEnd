@@ -1,0 +1,11 @@
+.dropdown {
+    width: 25%;
+    padding: 5px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.modale {
+    overflow-y: scroll;
+}
